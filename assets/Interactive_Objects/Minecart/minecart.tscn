@@ -1,0 +1,231 @@
+[gd_scene load_steps=14 format=3 uid="uid://blmfyx4ygwjv6"]
+
+[ext_resource type="Texture2D" uid="uid://dp5icgyfk6hk6" path="res://assets/Interactive_Objects/Minecart/minecart_BG.png" id="1_lq7le"]
+[ext_resource type="Script" uid="uid://raw02x5llefx" path="res://assets/Interactive_Objects/Minecart/minecart.gd" id="1_u4rk6"]
+[ext_resource type="Texture2D" uid="uid://3use2e6hq12y" path="res://assets/Interactive_Objects/Minecart/minecart_base.png" id="2_gtjbw"]
+[ext_resource type="Shader" uid="uid://b7keemmmxp2nw" path="res://shaders/skin_color.gdshader" id="3_4rdtr"]
+[ext_resource type="Texture2D" uid="uid://bq158s7xh2sfr" path="res://assets/Interactive_Objects/Minecart/player_sitting.png" id="3_e6wv2"]
+[ext_resource type="PackedScene" uid="uid://dos2lsggcjfn0" path="res://assets/Interactive_Objects/Minecart/wheel.tscn" id="4_u4rk6"]
+[ext_resource type="Script" uid="uid://or6ult70x2jc" path="res://assets/Interactive_Objects/Minecart/drive_interaction.gd" id="5_dqi3p"]
+[ext_resource type="Script" uid="uid://cwb02qhwivqi8" path="res://assets/Interactive_Objects/Minecart/jump_interaction.gd" id="6_e6wv2"]
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_dqi3p"]
+properties/0/path = NodePath(".:replicated_position")
+properties/0/spawn = true
+properties/0/replication_mode = 1
+properties/1/path = NodePath(".:replicated_rotation")
+properties/1/spawn = true
+properties/1/replication_mode = 1
+properties/2/path = NodePath(".:replicated_linear_velocity")
+properties/2/spawn = true
+properties/2/replication_mode = 1
+properties/3/path = NodePath(".:replicated_angular_velocity")
+properties/3/spawn = true
+properties/3/replication_mode = 1
+properties/4/path = NodePath(".:wheel_1_pos")
+properties/4/spawn = true
+properties/4/replication_mode = 1
+properties/5/path = NodePath(".:wheel_2_pos")
+properties/5/spawn = true
+properties/5/replication_mode = 1
+properties/6/path = NodePath(".:wheel_1_rot")
+properties/6/spawn = true
+properties/6/replication_mode = 1
+properties/7/path = NodePath(".:wheel_2_rot")
+properties/7/spawn = true
+properties/7/replication_mode = 1
+properties/8/path = NodePath(".:direction")
+properties/8/spawn = true
+properties/8/replication_mode = 1
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0mlbc"]
+shader = ExtResource("3_4rdtr")
+shader_parameter/target_color = Vector4(1, 1, 1, 1)
+shader_parameter/new_color = Vector4(1, 1, 1, 1)
+shader_parameter/tolerance = 0.1
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jm61u"]
+shader = ExtResource("3_4rdtr")
+shader_parameter/target_color = Vector4(1, 1, 1, 1)
+shader_parameter/new_color = Vector4(1, 1, 1, 1)
+shader_parameter/tolerance = 0.1
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4rdtr"]
+radius = 5.0990195
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0mlbc"]
+radius = 5.0
+
+[node name="Minecart" type="RigidBody2D"]
+script = ExtResource("1_u4rk6")
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_dqi3p")
+
+[node name="minecart_bg" type="Sprite2D" parent="."]
+z_index = -2
+z_as_relative = false
+texture = ExtResource("1_lq7le")
+
+[node name="driver_name" type="Label" parent="."]
+visible = false
+z_index = 100
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -19.0
+offset_top = -16.0
+offset_right = 55.0
+offset_bottom = -12.3125
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 3
+text = "playername"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="driving_player_sprite" type="Sprite2D" parent="."]
+visible = false
+material = SubResource("ShaderMaterial_0mlbc")
+position = Vector2(12, -7)
+texture = ExtResource("3_e6wv2")
+
+[node name="jumper_name" type="Label" parent="."]
+visible = false
+z_index = 100
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -55.0
+offset_top = -16.0
+offset_right = 19.0
+offset_bottom = -12.3125
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 3
+text = "playername"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="jumping_player_sprite" type="Sprite2D" parent="."]
+visible = false
+material = SubResource("ShaderMaterial_jm61u")
+position = Vector2(-13, -7)
+texture = ExtResource("3_e6wv2")
+flip_h = true
+
+[node name="minecart_front" type="Sprite2D" parent="."]
+z_index = 11
+texture = ExtResource("2_gtjbw")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-18, -7, -12, -7, -12, 5, 12, 5, 12, -7, 18, -7, 18, 8, -18, 8)
+
+[node name="PinJoint2D" type="PinJoint2D" parent="."]
+position = Vector2(-11, 7)
+node_a = NodePath("..")
+node_b = NodePath("wheel")
+softness = 1.0
+
+[node name="wheel" parent="PinJoint2D" instance=ExtResource("4_u4rk6")]
+can_sleep = false
+angular_damp = 10.0
+
+[node name="PinJoint2D2" type="PinJoint2D" parent="."]
+position = Vector2(11, 7)
+node_a = NodePath("..")
+node_b = NodePath("wheel")
+softness = 1.0
+
+[node name="wheel" parent="PinJoint2D2" instance=ExtResource("4_u4rk6")]
+can_sleep = false
+angular_damp = 10.0
+
+[node name="drive_interaction" type="Area2D" parent="." node_paths=PackedStringArray("interaction_label")]
+position = Vector2(8, -5)
+collision_layer = 7
+collision_mask = 7
+script = ExtResource("5_dqi3p")
+interaction_type = 1
+interaction_label = NodePath("Label")
+error_message = "in use!"
+metadata/_custom_type_script = "uid://djykh6w3fkk8w"
+
+[node name="Label" type="Label" parent="drive_interaction"]
+offset_left = -10.0
+offset_top = -8.0
+offset_right = 20.0
+offset_bottom = -3.96875
+theme_override_font_sizes/font_size = 3
+text = "[E] Enter"
+horizontal_alignment = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="drive_interaction"]
+position = Vector2(5, -1)
+shape = SubResource("CircleShape2D_4rdtr")
+
+[node name="jump_interaction" type="Area2D" parent="." node_paths=PackedStringArray("interaction_label")]
+position = Vector2(-11, -5)
+collision_layer = 7
+collision_mask = 7
+script = ExtResource("6_e6wv2")
+interaction_type = 1
+interaction_label = NodePath("Label")
+error_message = "in use!"
+metadata/_custom_type_script = "uid://djykh6w3fkk8w"
+
+[node name="Label" type="Label" parent="jump_interaction"]
+offset_left = -15.0
+offset_top = -8.0
+offset_right = 15.0
+offset_bottom = -3.96875
+theme_override_font_sizes/font_size = 3
+text = "[E] Enter"
+horizontal_alignment = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="jump_interaction"]
+position = Vector2(-2, -1)
+shape = SubResource("CircleShape2D_0mlbc")
+
+[node name="floor_detector" type="Node2D" parent="."]
+
+[node name="RayCast2D" type="RayCast2D" parent="floor_detector"]
+position = Vector2(0, 8)
+target_position = Vector2(0, 5)
+
+[node name="RayCast2D2" type="RayCast2D" parent="floor_detector"]
+position = Vector2(4, 8)
+target_position = Vector2(0, 5)
+
+[node name="RayCast2D3" type="RayCast2D" parent="floor_detector"]
+position = Vector2(-4, 8)
+target_position = Vector2(0, 5)
+
+[node name="RayCast2D4" type="RayCast2D" parent="floor_detector"]
+position = Vector2(-8, 8)
+target_position = Vector2(0, 5)
+
+[node name="RayCast2D7" type="RayCast2D" parent="floor_detector"]
+position = Vector2(-14, 8)
+target_position = Vector2(0, 5)
+
+[node name="RayCast2D5" type="RayCast2D" parent="floor_detector"]
+position = Vector2(8, 8)
+target_position = Vector2(0, 5)
+
+[node name="RayCast2D6" type="RayCast2D" parent="floor_detector"]
+position = Vector2(14, 8)
+target_position = Vector2(0, 5)
+
+[node name="jump_timer" type="Timer" parent="."]
+wait_time = 0.6
+
+[connection signal="timeout" from="jump_timer" to="." method="_on_jump_timer_timeout"]

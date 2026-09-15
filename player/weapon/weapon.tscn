@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://qon5h4r3q88o"]
+
+[ext_resource type="Script" uid="uid://dv8xtd0muvv8v" path="res://player/weapon/weapon.gd" id="1_gytx5"]
+
+[node name="Weapon" type="Area2D" groups=["weapon"]]
+script = ExtResource("1_gytx5")
+
+[node name="damage_timer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="damage_timer" to="." method="_on_damage_timer_timeout"]

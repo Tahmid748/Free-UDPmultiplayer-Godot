@@ -1,0 +1,532 @@
+[gd_scene load_steps=48 format=3 uid="uid://bfuy2453g8rk8"]
+
+[ext_resource type="Script" uid="uid://d2sdmtekslse2" path="res://level/level_2/level_2.gd" id="1_l5d1e"]
+[ext_resource type="Texture2D" uid="uid://csfwwajww600f" path="res://assets/background/level_2_bg.png" id="2_l5d1e"]
+[ext_resource type="Script" uid="uid://c5o2acj4cb266" path="res://assets/Interactive_Objects/water/water.gd" id="3_tk2f4"]
+[ext_resource type="Texture2D" uid="uid://ccvuy6gkwkk6s" path="res://assets/background/level_2_bg_transparent.png" id="4_bo2m7"]
+[ext_resource type="PackedScene" uid="uid://qon5h4r3q88o" path="res://player/weapon/weapon.tscn" id="6_mbu0e"]
+[ext_resource type="Script" uid="uid://twpvkvguoxtq" path="res://level/level_2/button_interaction.gd" id="6_rajgj"]
+[ext_resource type="Texture2D" uid="uid://djchwbciq8fee" path="res://assets/level_2/button.png" id="7_ax03m"]
+[ext_resource type="Script" uid="uid://cqbnqesxm3bpo" path="res://level/level_2/hammer.gd" id="7_eysyj"]
+[ext_resource type="Texture2D" uid="uid://36oht5d7ga2c" path="res://assets/weapons/axe.png" id="8_vmiqb"]
+[ext_resource type="Texture2D" uid="uid://doddckytj4rq0" path="res://assets/level_2/button_shaft.png" id="8_x3uea"]
+[ext_resource type="Script" uid="uid://d68syifq8xoq" path="res://level/level_2/lever_interaction.gd" id="9_31y88"]
+[ext_resource type="Texture2D" uid="uid://cvm08nkmhdbal" path="res://assets/level_2/lever_main.png" id="9_x3uea"]
+[ext_resource type="Texture2D" uid="uid://gsio21j6f4qi" path="res://assets/level_2/lever_shaft.png" id="10_rajgj"]
+[ext_resource type="Script" uid="uid://lg281a5xtogy" path="res://level/level_2/blockade_interaction.gd" id="13_2auxq"]
+[ext_resource type="Texture2D" uid="uid://llyg6j41ske4" path="res://assets/level_2/blockade.png" id="13_fwhj2"]
+[ext_resource type="Script" uid="uid://xxsu3aoh7fa4" path="res://level/level_2/blockade_2_interaction.gd" id="13_mbu0e"]
+[ext_resource type="FontFile" uid="uid://7v6v1cypct84" path="res://font/SHPinscher-Regular.otf" id="16_2iv4f"]
+[ext_resource type="Texture2D" uid="uid://xip2dckgqgpb" path="res://assets/level_2/platform.png" id="18_ui5re"]
+[ext_resource type="Script" uid="uid://bjotaejn22i82" path="res://level/level_2/weapon_1.gd" id="19_ui5re"]
+[ext_resource type="PackedScene" uid="uid://blmfyx4ygwjv6" path="res://assets/Interactive_Objects/Minecart/minecart.tscn" id="20_sh5ms"]
+[ext_resource type="PackedScene" uid="uid://cj586ffqgh7g5" path="res://assets/Interactive_Objects/Minecart/rail/rail.tscn" id="21_xecs5"]
+[ext_resource type="Texture2D" uid="uid://dfravvo7kacrl" path="res://assets/minecart_obstacles/obstacle_log.png" id="22_1i73s"]
+[ext_resource type="Texture2D" uid="uid://cvnwgk0pm3yi1" path="res://assets/minecart_obstacles/obstacle_minecart.png" id="23_li574"]
+[ext_resource type="Script" uid="uid://c8ftxirs0o73d" path="res://scene_transition/level_transition.gd" id="24_li574"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ui5re"]
+radius = 5.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rajgj"]
+
+[sub_resource type="Animation" id="Animation_ax03m"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("button:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(2, 568)]
+}
+
+[sub_resource type="Animation" id="Animation_217uw"]
+resource_name = "pressed"
+length = 0.6
+step = 0.0333333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("button:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(2, 568), Vector2(0, 568)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_x3uea"]
+_data = {
+&"RESET": SubResource("Animation_ax03m"),
+&"pressed": SubResource("Animation_217uw")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_217uw"]
+radius = 16.03122
+
+[sub_resource type="Animation" id="Animation_31y88"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("lever_base:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.5497787143782138]
+}
+
+[sub_resource type="Animation" id="Animation_rajgj"]
+resource_name = "pressed"
+length = 0.6
+step = 0.0333333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("lever_base:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.5497787143782138, -0.5497787]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fwhj2"]
+_data = {
+&"RESET": SubResource("Animation_31y88"),
+&"pressed": SubResource("Animation_rajgj")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fwhj2"]
+size = Vector2(7, 54)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fwhj2"]
+radius = 29.068884
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2iv4f"]
+radius = 35.50352
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mbu0e"]
+size = Vector2(6, 40)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ui5re"]
+size = Vector2(13, 40)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2auxq"]
+size = Vector2(18, 6)
+
+[sub_resource type="Animation" id="Animation_xecs5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-4, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_sh5ms"]
+resource_name = "up_down"
+loop_mode = 1
+step = 0.0333333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-4, 1), Vector2(-4, 3)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_55brn"]
+_data = {
+&"RESET": SubResource("Animation_xecs5"),
+&"up_down": SubResource("Animation_sh5ms")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1i73s"]
+radius = 15.033297
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1i73s"]
+size = Vector2(25, 11)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_li574"]
+size = Vector2(30, 18.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4pgxy"]
+size = Vector2(25, 21.25)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_li574"]
+radius = 39.012817
+
+[node name="level_2" type="Node2D"]
+script = ExtResource("1_l5d1e")
+
+[node name="weapon_reference" parent="." instance=ExtResource("6_mbu0e")]
+process_mode = 4
+visible = false
+position = Vector2(379, 504)
+script = ExtResource("7_eysyj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="weapon_reference"]
+position = Vector2(3, 0)
+shape = SubResource("CircleShape2D_ui5re")
+
+[node name="Sprite2D" type="Sprite2D" parent="weapon_reference"]
+texture = ExtResource("8_vmiqb")
+
+[node name="reference_camera" type="Camera2D" parent="."]
+process_mode = 4
+visible = false
+position = Vector2(577, 322)
+limit_left = 0
+limit_top = 20
+limit_right = 1148
+limit_bottom = 590
+editor_draw_limits = true
+
+[node name="Level2Bg" type="Sprite2D" parent="."]
+z_index = -2
+position = Vector2(574, 324)
+texture = ExtResource("2_l5d1e")
+
+[node name="Water" type="Node2D" parent="."]
+position = Vector2(0, 466)
+script = ExtResource("3_tk2f4")
+water_size = Vector2(270, 125)
+water_physics_speed = 100.0
+water_restoring_force = 0.01
+wave_energy_loss = 0.02
+surface_line_thickness = 5.0
+surface_color = Color(0, 0.40784314, 0.6509804, 0.7529412)
+water_fill_color = Color(0, 0.627451, 0.8509804, 0.5176471)
+metadata/_custom_type_script = "uid://c5o2acj4cb266"
+
+[node name="Level2Bg2" type="Sprite2D" parent="."]
+z_index = 3
+position = Vector2(576, 324)
+texture = ExtResource("4_bo2m7")
+
+[node name="player_holder" type="Marker2D" parent="." groups=["player_holder"]]
+z_index = -1
+position = Vector2(60, 273)
+
+[node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="."]
+_spawnable_scenes = PackedStringArray("uid://bcycpqjc8xtfj")
+spawn_path = NodePath("../player_holder")
+
+[node name="collisions" type="StaticBody2D" parent="."]
+visible = false
+z_index = 4
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="collisions"]
+polygon = PackedVector2Array(6, 590, 238, 591, 262, 586, 268, 567, 269, 548, 275, 540, 288, 532, 627, 532, 1016, 532, 1246, 532, 1223, 684, 102, 710, -106, 686, -48, 588, 0, 505, 0, 585)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="collisions"]
+polygon = PackedVector2Array(0, 65, 353, 65, 370, 76, 373, 98, 375, 117, 385, 126, 403, 129, 579, 128, 579, 148, 584, 157, 592, 160, 601, 161, 605, 170, 604, 318, 597, 325, 589, 331, 583, 332, 580, 332, 574, 333, 565, 339, 559, 349, 559, 370, 558, 420, 550, 432, 542, 437, 292, 437, 282, 439, 276, 444, 272, 449, 269, 456, 269, 493, 271, 494, 279, 484, 290, 479, 540, 479, 548, 482, 557, 493, 560, 493, 611, 350, 866, 322, 890, 342, 891, 352, 891, 395, 897, 409, 912, 417, 1061, 416, 1260, 414, 1232, 532, 1252, 531, 1339, 105, 1310, -121, 230, -194, -317, -29, -326, 612, -197, 783, -126, 715, -128, 645, -37, 559, -1, 575)
+
+[node name="Minecart" parent="." instance=ExtResource("20_sh5ms")]
+position = Vector2(682, 455)
+
+[node name="button_interaction" type="Area2D" parent="." node_paths=PackedStringArray("interaction_label")]
+z_index = -1
+script = ExtResource("6_rajgj")
+interaction_type = 1
+interaction_label = NodePath("Label")
+metadata/_custom_type_script = "uid://djykh6w3fkk8w"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="button_interaction"]
+position = Vector2(-1, 568)
+shape = SubResource("CircleShape2D_rajgj")
+
+[node name="button" type="Sprite2D" parent="button_interaction"]
+position = Vector2(2, 568)
+texture = ExtResource("7_ax03m")
+
+[node name="button_shaft" type="Sprite2D" parent="button_interaction"]
+position = Vector2(-2, 568)
+texture = ExtResource("8_x3uea")
+
+[node name="button_anim" type="AnimationPlayer" parent="button_interaction"]
+libraries = {
+&"": SubResource("AnimationLibrary_x3uea")
+}
+
+[node name="Label" type="Label" parent="button_interaction"]
+z_index = 1
+offset_top = 556.0
+offset_right = 7.0
+offset_bottom = 564.0625
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 6
+text = "[E]"
+
+[node name="lever_interaction" type="Area2D" parent="." node_paths=PackedStringArray("interaction_label")]
+position = Vector2(501, 427)
+script = ExtResource("9_31y88")
+interaction_label = NodePath("Label")
+metadata/_custom_type_script = "uid://djykh6w3fkk8w"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="lever_interaction"]
+position = Vector2(3, -3)
+shape = SubResource("CircleShape2D_217uw")
+
+[node name="lever_base" type="Marker2D" parent="lever_interaction"]
+position = Vector2(3, 7)
+rotation = 0.5497787
+
+[node name="lever" type="Sprite2D" parent="lever_interaction/lever_base"]
+position = Vector2(0, -15)
+texture = ExtResource("9_x3uea")
+
+[node name="lever_shaft" type="Sprite2D" parent="lever_interaction"]
+position = Vector2(3, -6)
+texture = ExtResource("10_rajgj")
+
+[node name="Label" type="Label" parent="lever_interaction"]
+z_index = 1
+offset_top = -19.0
+offset_right = 7.0
+offset_bottom = -10.9375
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 6
+text = "[E]"
+
+[node name="lever_anim" type="AnimationPlayer" parent="lever_interaction"]
+libraries = {
+&"": SubResource("AnimationLibrary_fwhj2")
+}
+
+[node name="blockade_interaction" type="Area2D" parent="." node_paths=PackedStringArray("interaction_label")]
+position = Vector2(276, 520)
+script = ExtResource("13_2auxq")
+interaction_label = NodePath("Label")
+error_message = "can't break blockade inside water!"
+metadata/_custom_type_script = "uid://djykh6w3fkk8w"
+
+[node name="Sprite2D" type="Sprite2D" parent="blockade_interaction"]
+modulate = Color(0.48388642, 0.7176299, 0.87562627, 1)
+position = Vector2(-7.999995, 3.0000134)
+scale = Vector2(2.902869, 1.3945203)
+texture = ExtResource("13_fwhj2")
+region_enabled = true
+region_rect = Rect2(30.944714, 2, 5.0552864, 46)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="blockade_interaction"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="blockade_interaction/StaticBody2D"]
+position = Vector2(-3.5, -2)
+shape = SubResource("RectangleShape2D_fwhj2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="blockade_interaction"]
+position = Vector2(6, -2)
+shape = SubResource("CircleShape2D_fwhj2")
+
+[node name="Label" type="Label" parent="blockade_interaction"]
+offset_left = -69.0
+offset_top = -18.0
+offset_right = 55.0
+offset_bottom = -8.59375
+theme_override_font_sizes/font_size = 7
+text = "[E]"
+horizontal_alignment = 1
+
+[node name="blockade_2_interaction" type="Area2D" parent="." node_paths=PackedStringArray("interaction_label")]
+position = Vector2(558, 512)
+script = ExtResource("13_mbu0e")
+interaction_type = 1
+refresh_time = 0.2
+interaction_label = NodePath("Label")
+hit_interaction = true
+metadata/_custom_type_script = "uid://djykh6w3fkk8w"
+
+[node name="Sprite2D2" type="Sprite2D" parent="blockade_2_interaction"]
+position = Vector2(-2.4267578, -4)
+scale = Vector2(2.7866356, 0.99465203)
+texture = ExtResource("13_fwhj2")
+region_enabled = true
+region_rect = Rect2(4, 1, 4, 48)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="blockade_2_interaction"]
+position = Vector2(0, 0.5)
+shape = SubResource("CircleShape2D_2iv4f")
+
+[node name="Label" type="Label" parent="blockade_2_interaction"]
+offset_left = -7.0
+offset_top = -16.0
+offset_right = 8.0
+offset_bottom = -7.9375
+theme_override_fonts/font = ExtResource("16_2iv4f")
+theme_override_font_sizes/font_size = 6
+text = "[100%]"
+horizontal_alignment = 1
+
+[node name="StaticBody2D" type="StaticBody2D" parent="blockade_2_interaction"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="blockade_2_interaction/StaticBody2D"]
+shape = SubResource("RectangleShape2D_mbu0e")
+
+[node name="hit_box" type="Area2D" parent="blockade_2_interaction"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="blockade_2_interaction/hit_box"]
+position = Vector2(0.5, 0)
+shape = SubResource("RectangleShape2D_ui5re")
+
+[node name="platform" type="StaticBody2D" parent="."]
+z_index = -1
+position = Vector2(226, 581)
+
+[node name="Sprite2D" type="Sprite2D" parent="platform"]
+texture = ExtResource("18_ui5re")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="platform"]
+position = Vector2(0, 2)
+shape = SubResource("RectangleShape2D_2auxq")
+
+[node name="weapon_1" type="Area2D" parent="." node_paths=PackedStringArray("interaction_label")]
+position = Vector2(398, 519)
+script = ExtResource("19_ui5re")
+interaction_label = NodePath("Label")
+error_message = "can't equip weapon!"
+metadata/_custom_type_script = "uid://djykh6w3fkk8w"
+
+[node name="Label" type="Label" parent="weapon_1"]
+offset_left = -29.0
+offset_top = -10.0
+offset_right = 31.0
+offset_bottom = -3.28125
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 5
+text = "[E]"
+horizontal_alignment = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="weapon_1"]
+position = Vector2(-4, 1)
+texture = ExtResource("8_vmiqb")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="weapon_1"]
+libraries = {
+&"": SubResource("AnimationLibrary_55brn")
+}
+autoplay = "up_down"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="weapon_1"]
+shape = SubResource("CircleShape2D_1i73s")
+
+[node name="weapon_2" type="Area2D" parent="." node_paths=PackedStringArray("interaction_label")]
+position = Vector2(411, 519)
+script = ExtResource("19_ui5re")
+interaction_label = NodePath("Label")
+error_message = "can't equip weapon!"
+metadata/_custom_type_script = "uid://djykh6w3fkk8w"
+
+[node name="Label" type="Label" parent="weapon_2"]
+offset_left = -30.0
+offset_top = -10.0
+offset_right = 32.0
+offset_bottom = -3.28125
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 3
+theme_override_font_sizes/font_size = 5
+text = "[E]"
+horizontal_alignment = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="weapon_2"]
+position = Vector2(-4, 1)
+texture = ExtResource("8_vmiqb")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="weapon_2"]
+libraries = {
+&"": SubResource("AnimationLibrary_55brn")
+}
+autoplay = "up_down"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="weapon_2"]
+shape = SubResource("CircleShape2D_1i73s")
+
+[node name="rails" type="Node" parent="."]
+
+[node name="Rail" parent="rails" instance=ExtResource("21_xecs5")]
+position = Vector2(780, 526)
+
+[node name="Rail3" parent="rails" instance=ExtResource("21_xecs5")]
+position = Vector2(694, 526)
+
+[node name="Rail2" parent="rails" instance=ExtResource("21_xecs5")]
+position = Vector2(866, 526)
+
+[node name="Rail4" parent="rails" instance=ExtResource("21_xecs5")]
+position = Vector2(952, 526)
+
+[node name="Rail5" parent="rails" instance=ExtResource("21_xecs5")]
+position = Vector2(1038, 526)
+
+[node name="Rail6" parent="rails" instance=ExtResource("21_xecs5")]
+position = Vector2(1124, 526)
+
+[node name="obstacles" type="StaticBody2D" parent="."]
+z_index = 2
+
+[node name="ObstacleLog" type="Sprite2D" parent="obstacles"]
+position = Vector2(795, 521)
+texture = ExtResource("22_1i73s")
+
+[node name="ObstacleLog2" type="Sprite2D" parent="obstacles"]
+position = Vector2(1046, 521)
+texture = ExtResource("22_1i73s")
+
+[node name="ObstacleLog3" type="Sprite2D" parent="obstacles"]
+position = Vector2(1046, 511)
+texture = ExtResource("22_1i73s")
+
+[node name="ObstacleMinecart" type="Sprite2D" parent="obstacles"]
+position = Vector2(929, 513)
+texture = ExtResource("23_li574")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="obstacles"]
+position = Vector2(796.5, 523.5)
+shape = SubResource("RectangleShape2D_1i73s")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="obstacles"]
+position = Vector2(930, 519.75)
+shape = SubResource("RectangleShape2D_li574")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="obstacles"]
+position = Vector2(1047.5, 518.625)
+shape = SubResource("RectangleShape2D_4pgxy")
+
+[node name="SceneTransition" type="Area2D" parent="."]
+position = Vector2(1206, 504)
+collision_layer = 7
+collision_mask = 7
+script = ExtResource("24_li574")
+next_level_path = "res://level/level_3/level_3.tscn"
+metadata/_custom_type_script = "uid://c8ftxirs0o73d"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SceneTransition"]
+position = Vector2(-13, -2)
+shape = SubResource("CircleShape2D_li574")

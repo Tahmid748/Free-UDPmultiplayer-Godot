@@ -1,0 +1,323 @@
+[gd_scene format=3 uid="uid://dpyp1q4tgdcps"]
+
+[ext_resource type="Script" uid="uid://b7u58bv0q0mkh" path="res://level/level_1/level_1.gd" id="1_b8haq"]
+[ext_resource type="Texture2D" uid="uid://bvr2n0wtgp860" path="res://assets/level_1/background/background_wall.png" id="2_2q84h"]
+[ext_resource type="PackedScene" uid="uid://dkj70l4mgpbyg" path="res://scene_transition/level_transition.tscn" id="3_e32pu"]
+[ext_resource type="Texture2D" uid="uid://bcp827h1wvupu" path="res://assets/level_1/background/background_lava.png" id="3_uk6h7"]
+[ext_resource type="Texture2D" uid="uid://cynqw0u3cl2ld" path="res://assets/level_1/background/background_floor.png" id="4_83hj8"]
+[ext_resource type="Script" uid="uid://diu7kwmpmo6f1" path="res://level/level_1/jump_speed.gd" id="4_bax5m"]
+[ext_resource type="Texture2D" uid="uid://dxovd32gu5q0x" path="res://assets/level_1/potion.png" id="5_4t30n"]
+[ext_resource type="Texture2D" uid="uid://g577q4chl5e6" path="res://assets/level_1/background/snake-sprite.png" id="5_83hj8"]
+[ext_resource type="AudioStream" uid="uid://41aeyejokwlp" path="res://assets/level_1/music/beginning_music.mp3" id="5_rk12w"]
+[ext_resource type="Texture2D" uid="uid://dnd35u8cflo45" path="res://assets/level_1/background/cave.png" id="6_kfo8w"]
+[ext_resource type="Texture2D" uid="uid://cf4gsvvr0xvoh" path="res://assets/level_1/box.png" id="6_p5edo"]
+[ext_resource type="AudioStream" uid="uid://gfnx658057lw" path="res://assets/level_1/music/picking_up_item.mp3" id="6_qnhwy"]
+[ext_resource type="AudioStream" uid="uid://d4bxtop3h44p2" path="res://assets/level_1/music/begining_music_looped.mp3" id="6_sfbe2"]
+[ext_resource type="Texture2D" uid="uid://duws4m2hcxkg2" path="res://assets/level_1/background/piller.png" id="7_fowqv"]
+[ext_resource type="Texture2D" uid="uid://bpvyriwccisc1" path="res://assets/level_1/background/level_1_floor.png" id="8_hd1qg"]
+[ext_resource type="Texture2D" uid="uid://bqics12otpxhl" path="res://assets/level_1/background/hole_backside.png" id="9_7xcwl"]
+[ext_resource type="Texture2D" uid="uid://belxoa1hcfljx" path="res://assets/level_1/background/hole_top_part.png" id="10_gbqpp"]
+[ext_resource type="Texture2D" uid="uid://dtvdy546cidpv" path="res://assets/level_1/background/hole-toppest-part.png" id="11_402ox"]
+[ext_resource type="Texture2D" uid="uid://dqwivfb1wrd74" path="res://assets/level_1/background/tent.png" id="11_s4yv0"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uk6h7"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uk6h7"]
+atlas = ExtResource("5_83hj8")
+region = Rect2(4096, 0, 1024, 648)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_83hj8"]
+atlas = ExtResource("5_83hj8")
+region = Rect2(3072, 0, 1024, 648)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_402ox"]
+atlas = ExtResource("5_83hj8")
+region = Rect2(2048, 0, 1024, 648)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s4yv0"]
+atlas = ExtResource("5_83hj8")
+region = Rect2(1024, 0, 1024, 648)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b3ge6"]
+atlas = ExtResource("5_83hj8")
+region = Rect2(0, 0, 1024, 648)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kfo8w"]
+atlas = ExtResource("5_83hj8")
+region = Rect2(0, 0, 1024, 648)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fowqv"]
+atlas = ExtResource("5_83hj8")
+region = Rect2(1024, 0, 1024, 648)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hd1qg"]
+atlas = ExtResource("5_83hj8")
+region = Rect2(2048, 0, 1024, 648)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7xcwl"]
+atlas = ExtResource("5_83hj8")
+region = Rect2(3072, 0, 1024, 648)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gbqpp"]
+atlas = ExtResource("5_83hj8")
+region = Rect2(4096, 0, 1024, 648)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_s4yv0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uk6h7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_83hj8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_402ox")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s4yv0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b3ge6")
+}],
+"loop": false,
+"name": &"eye_close",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kfo8w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fowqv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hd1qg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7xcwl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gbqpp")
+}],
+"loop": false,
+"name": &"eye_open",
+"speed": 5.0
+}]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bax5m"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bax5m"]
+radius = 28.01785
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_e32pu"]
+radius = 6.3245554
+
+[sub_resource type="Animation" id="Animation_uyioa"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_p5edo"]
+resource_name = "up_down"
+length = 0.6
+loop_mode = 1
+step = 0.0333333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 1), Vector2(0, -2)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_crgpi"]
+_data = {
+&"RESET": SubResource("Animation_uyioa"),
+&"up_down": SubResource("Animation_p5edo")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bax5m"]
+size = Vector2(44, 42)
+
+[node name="level_1" type="Node2D" unique_id=66370030]
+script = ExtResource("1_b8haq")
+
+[node name="bg" type="Node2D" parent="." unique_id=703519678]
+position = Vector2(527, 325)
+
+[node name="Panel" type="Panel" parent="bg" unique_id=239996761]
+offset_left = -527.0
+offset_top = -325.0
+offset_right = 561.0
+offset_bottom = 341.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_uk6h7")
+
+[node name="BackgroundFloor" type="Sprite2D" parent="bg" unique_id=848123027]
+texture = ExtResource("4_83hj8")
+
+[node name="wall" type="Parallax2D" parent="bg" unique_id=371470756]
+scroll_scale = Vector2(0.6, 0.6)
+
+[node name="BackgroundWall" type="Sprite2D" parent="bg/wall" unique_id=340352664]
+texture = ExtResource("2_2q84h")
+
+[node name="lava" type="Parallax2D" parent="bg" unique_id=2122268071]
+scroll_scale = Vector2(0.75, 0.75)
+
+[node name="BackgroundLava" type="Sprite2D" parent="bg/lava" unique_id=25406753]
+texture = ExtResource("3_uk6h7")
+
+[node name="wall2" type="Parallax2D" parent="bg" unique_id=765260002]
+scroll_scale = Vector2(0.8, 0.8)
+
+[node name="BackgroundFloor" type="Sprite2D" parent="bg/wall2" unique_id=2143222111]
+texture = ExtResource("4_83hj8")
+
+[node name="snake" type="Parallax2D" parent="bg" unique_id=1769260923]
+scroll_scale = Vector2(0.9, 0.9)
+
+[node name="Snake" type="AnimatedSprite2D" parent="bg/snake" unique_id=116019997]
+sprite_frames = SubResource("SpriteFrames_s4yv0")
+animation = &"eye_open"
+frame = 4
+frame_progress = 1.0
+
+[node name="Cave" type="Sprite2D" parent="bg" unique_id=2075393303]
+position = Vector2(0, 6)
+texture = ExtResource("6_kfo8w")
+
+[node name="Piller" type="Sprite2D" parent="bg" unique_id=322650828]
+texture = ExtResource("7_fowqv")
+
+[node name="Level1Floor" type="Sprite2D" parent="bg" unique_id=719528310]
+texture = ExtResource("8_hd1qg")
+
+[node name="HoleBackside" type="Sprite2D" parent="bg" unique_id=525288151]
+texture = ExtResource("9_7xcwl")
+
+[node name="HoleTopPart" type="Sprite2D" parent="bg" unique_id=1301316761]
+texture = ExtResource("10_gbqpp")
+
+[node name="HoleToppestPart" type="Sprite2D" parent="bg" unique_id=1444831403]
+z_index = 2
+texture = ExtResource("11_402ox")
+
+[node name="Tent" type="Sprite2D" parent="bg" unique_id=271204485]
+position = Vector2(-461, 39)
+texture = ExtResource("11_s4yv0")
+
+[node name="floor" type="StaticBody2D" parent="." unique_id=1675288108]
+visible = false
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="floor" unique_id=1406851934]
+polygon = PackedVector2Array(15, 384, 42, 385, 122, 388, 163, 391, 171, 386, 207, 392, 253, 412, 281, 436, 301, 445, 321, 447, 346, 449, 366, 450, 392, 451, 415, 451, 424, 449, 434, 448, 456, 445, 478, 445, 479, 373, 503, 364, 545, 362, 564, 360, 589, 360, 640, 359, 662, 366, 689, 372, 734, 372, 759, 362, 771, 361, 823, 392, 845, 394, 857, 404, 865, 407, 916, 405, 916, 404, 916, 400, 918, 399, 918, 405, 935, 532, 951, 576, 1012, 568, 998, 506, 977, 426, 974, 402, 974, 399, 975, 399, 975, 402, 1040, 404, 1040, 254, 1034, 153, 982, 125, 563, 141, 38, 160, 37, 385, 15, 384, -97, 221, -87, 78, 92, 21, 1223, 31, 1590, 780, 372, 1004, -119, 773, -123, 391, 6.066437, 384.45316)
+
+[node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="." unique_id=641210422]
+_spawnable_scenes = PackedStringArray("uid://bcycpqjc8xtfj")
+spawn_path = NodePath("../player_holder")
+
+[node name="player_holder" type="Marker2D" parent="." unique_id=1236654285]
+position = Vector2(200, 295)
+
+[node name="reference_camera" type="Camera2D" parent="." unique_id=330142863]
+process_mode = 4
+limit_left = 44
+limit_top = 22
+limit_right = 1032
+limit_bottom = 600
+
+[node name="level_transition" parent="." unique_id=1440769569 instance=ExtResource("3_e32pu")]
+position = Vector2(969, 511)
+next_level_path = "res://level/level_2/level_2.tscn"
+
+[node name="Panel" type="Panel" parent="level_transition" unique_id=1927708947]
+visible = false
+offset_left = -29.0
+offset_top = -14.0
+offset_right = 30.0
+offset_bottom = 47.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_bax5m")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="level_transition" unique_id=743447131]
+position = Vector2(0, 16)
+shape = SubResource("CircleShape2D_bax5m")
+
+[node name="jump_potion" type="Area2D" parent="." unique_id=163466591]
+position = Vector2(242, 287)
+script = ExtResource("4_bax5m")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="jump_potion" unique_id=2005230468]
+position = Vector2(1, 0)
+shape = SubResource("CircleShape2D_e32pu")
+
+[node name="Sprite2D" type="Sprite2D" parent="jump_potion" unique_id=2099932653]
+texture = ExtResource("5_4t30n")
+
+[node name="potion_anim" type="AnimationPlayer" parent="jump_potion" unique_id=1294508831]
+libraries/ = SubResource("AnimationLibrary_crgpi")
+autoplay = &"up_down"
+
+[node name="box" type="RigidBody2D" parent="." unique_id=2109318728]
+position = Vector2(507, 328)
+mass = 15.0
+angular_damp = 100.0
+
+[node name="Sprite2D" type="Sprite2D" parent="box" unique_id=1983361619]
+scale = Vector2(1.3, 1.3)
+texture = ExtResource("6_p5edo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="box" unique_id=1451571099]
+shape = SubResource("RectangleShape2D_bax5m")
+
+[node name="beginning_music" type="AudioStreamPlayer" parent="." unique_id=422087765]
+stream = ExtResource("5_rk12w")
+volume_db = -4.0
+autoplay = true
+
+[node name="beginning_music_looped" type="AudioStreamPlayer" parent="." unique_id=2092228924]
+stream = ExtResource("6_sfbe2")
+
+[node name="item" type="AudioStreamPlayer2D" parent="." unique_id=1879254683]
+position = Vector2(266, 363)
+stream = ExtResource("6_qnhwy")
+volume_db = 7.0
+
+[node name="snake_blinking" type="Timer" parent="." unique_id=681102307]
+wait_time = 3.0
+autostart = true
+
+[connection signal="body_entered" from="jump_potion" to="jump_potion" method="_on_body_entered"]
+[connection signal="finished" from="beginning_music" to="." method="_on_beginning_music_finished"]
+[connection signal="finished" from="beginning_music_looped" to="." method="_on_beginning_music_looped_finished"]
+[connection signal="timeout" from="snake_blinking" to="." method="_on_snake_blinking_timeout"]

@@ -1,0 +1,466 @@
+[gd_scene format=3 uid="uid://n8mwxn8yc328"]
+
+[ext_resource type="Script" uid="uid://6aqmcyjmmjew" path="res://level/level_3/level_3.gd" id="1_pcjgk"]
+[ext_resource type="PackedScene" uid="uid://blmfyx4ygwjv6" path="res://assets/Interactive_Objects/Minecart/minecart.tscn" id="2_7a7ip"]
+[ext_resource type="PackedScene" uid="uid://dqwke5m633ddy" path="res://assets/Interactive_Objects/boulder/boulder.tscn" id="3_cqlcf"]
+[ext_resource type="Texture2D" uid="uid://bma35y633l827" path="res://assets/minecart_obstacles/obstacle_box.png" id="4_b8ns4"]
+[ext_resource type="PackedScene" uid="uid://cj586ffqgh7g5" path="res://assets/Interactive_Objects/Minecart/rail/rail.tscn" id="4_ud8du"]
+[ext_resource type="Texture2D" uid="uid://cvnwgk0pm3yi1" path="res://assets/minecart_obstacles/obstacle_minecart.png" id="5_3jfpq"]
+[ext_resource type="PackedScene" uid="uid://chbtcmlp3wplk" path="res://assets/Interactive_Objects/piston/piston.tscn" id="5_ou2uf"]
+[ext_resource type="Texture2D" uid="uid://dfravvo7kacrl" path="res://assets/minecart_obstacles/obstacle_log.png" id="6_3jfpq"]
+[ext_resource type="Texture2D" uid="uid://crwdiuxsatmlc" path="res://assets/level_3/long_platform.png" id="8_lf4ol"]
+[ext_resource type="PackedScene" uid="uid://d2eoligill8p1" path="res://assets/Interactive_Objects/spike/spike_trap.tscn" id="10_6dtq3"]
+[ext_resource type="Script" uid="uid://c5ywwgml1p6ou" path="res://level/level_3/platform_interaction.gd" id="10_vcs4x"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q6lit"]
+size = Vector2(1961, 106)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gye1x"]
+size = Vector2(910.5, 106)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ud8du"]
+size = Vector2(651, 100)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b8ns4"]
+size = Vector2(479, 179)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m78yf"]
+size = Vector2(249.625, 632)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lf4ol"]
+size = Vector2(26.75, 23)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6dtq3"]
+size = Vector2(52.09375, 19.75)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vcs4x"]
+size = Vector2(38, 20.875)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3jfpq"]
+size = Vector2(29, 44)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ja05p"]
+size = Vector2(29, 17)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u1li5"]
+size = Vector2(37, 33.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pj8xv"]
+size = Vector2(50, 14)
+
+[sub_resource type="Animation" id="Animation_6dtq3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("platform:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -3)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("LongPlatform:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, -4)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("platform_interaction:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_lf4ol"]
+resource_name = "platform_up"
+length = 30.0
+step = 0.0333333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("platform:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 30),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, -3), Vector2(0, -464.71)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("LongPlatform:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 30),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, -4), Vector2(1, -464.71)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("platform_interaction:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 30),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -464.71)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vcs4x"]
+_data = {
+&"RESET": SubResource("Animation_6dtq3"),
+&"platform_up": SubResource("Animation_lf4ol")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ja05p"]
+radius = 8.062258
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vcs4x"]
+radius = 39.698868
+
+[node name="level_3" type="Node2D" unique_id=3977852]
+script = ExtResource("1_pcjgk")
+
+[node name="reference_camera" type="Camera2D" parent="." unique_id=1014246332]
+process_mode = 4
+position = Vector2(578, 357)
+limit_left = 5
+limit_top = -615
+limit_right = 2780
+limit_bottom = 625
+editor_draw_limits = true
+
+[node name="floor" type="StaticBody2D" parent="." unique_id=1475553648]
+collision_layer = 7
+collision_mask = 7
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="floor" unique_id=869129860]
+position = Vector2(792.5, 633)
+shape = SubResource("RectangleShape2D_q6lit")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="floor" unique_id=259697918]
+position = Vector2(2350.75, 633)
+shape = SubResource("RectangleShape2D_gye1x")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="floor" unique_id=1322766658]
+position = Vector2(967.5, 533)
+shape = SubResource("RectangleShape2D_ud8du")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="floor" unique_id=1845337273]
+position = Vector2(1533.5, 493.5)
+shape = SubResource("RectangleShape2D_b8ns4")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="floor" unique_id=194782064]
+position = Vector2(2001.1875, 267)
+shape = SubResource("RectangleShape2D_m78yf")
+
+[node name="Panel" type="Panel" parent="." unique_id=251149529]
+offset_left = -62.0
+offset_top = 578.0
+offset_right = 1773.0
+offset_bottom = 723.0
+
+[node name="Panel5" type="Panel" parent="." unique_id=1983366553]
+offset_left = 1895.0
+offset_top = 578.0
+offset_right = 2783.0
+offset_bottom = 723.0
+
+[node name="Panel2" type="Panel" parent="." unique_id=1325057941]
+offset_left = 643.0
+offset_top = 476.0
+offset_right = 1293.0
+offset_bottom = 702.0
+
+[node name="Panel3" type="Panel" parent="." unique_id=2130023436]
+offset_left = 1293.0
+offset_top = 402.0
+offset_right = 1773.0
+offset_bottom = 702.0
+
+[node name="Panel4" type="Panel" parent="." unique_id=939622476]
+offset_left = 1876.0
+offset_top = -50.0
+offset_right = 2127.0
+offset_bottom = 701.0
+
+[node name="player_holder" type="Marker2D" parent="." unique_id=1331879827]
+position = Vector2(171, 160)
+
+[node name="Minecart" parent="." unique_id=142746986 instance=ExtResource("2_7a7ip")]
+position = Vector2(209, 166)
+testing_mode = true
+
+[node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="." unique_id=535448343]
+_spawnable_scenes = PackedStringArray("uid://bcycpqjc8xtfj")
+spawn_path = NodePath("../player_holder")
+
+[node name="boulder" parent="." unique_id=1092212145 instance=ExtResource("3_cqlcf")]
+z_index = 10
+position = Vector2(-22, 9)
+current_level_path = "res://level/level_3/level_3.tscn"
+
+[node name="obstacles" type="Node2D" parent="." unique_id=772818473]
+z_index = 7
+
+[node name="ObstacleBox" type="Sprite2D" parent="obstacles" unique_id=1058163090]
+position = Vector2(307, 564)
+texture = ExtResource("4_b8ns4")
+
+[node name="ObstacleMinecart" type="Sprite2D" parent="obstacles" unique_id=1075259932]
+position = Vector2(473, 561)
+texture = ExtResource("5_3jfpq")
+
+[node name="ObstacleMinecart2" type="Sprite2D" parent="obstacles" unique_id=783320532]
+position = Vector2(495, 561)
+texture = ExtResource("5_3jfpq")
+
+[node name="ObstacleLog2" type="Sprite2D" parent="obstacles" unique_id=240977024]
+position = Vector2(786, 471)
+texture = ExtResource("6_3jfpq")
+
+[node name="ObstacleLog3" type="Sprite2D" parent="obstacles" unique_id=1174244359]
+position = Vector2(779, 461)
+texture = ExtResource("6_3jfpq")
+
+[node name="ObstacleLog" type="Sprite2D" parent="obstacles" unique_id=1289262847]
+position = Vector2(773, 471)
+texture = ExtResource("6_3jfpq")
+
+[node name="ObstacleBox2" type="Sprite2D" parent="obstacles" unique_id=120128669]
+position = Vector2(950, 464)
+texture = ExtResource("4_b8ns4")
+
+[node name="ObstacleBox3" type="Sprite2D" parent="obstacles" unique_id=1829232162]
+position = Vector2(948, 442)
+texture = ExtResource("4_b8ns4")
+
+[node name="ObstacleMinecart3" type="Sprite2D" parent="obstacles" unique_id=924301032]
+position = Vector2(1071, 463)
+texture = ExtResource("5_3jfpq")
+
+[node name="ObstacleLog4" type="Sprite2D" parent="obstacles" unique_id=2043675316]
+position = Vector2(1455, 382)
+texture = ExtResource("6_3jfpq")
+
+[node name="ObstacleLog5" type="Sprite2D" parent="obstacles" unique_id=662268685]
+position = Vector2(1455, 371)
+texture = ExtResource("6_3jfpq")
+
+[node name="ObstacleLog6" type="Sprite2D" parent="obstacles" unique_id=1215851656]
+position = Vector2(1462, 393)
+texture = ExtResource("6_3jfpq")
+
+[node name="ObstacleLog7" type="Sprite2D" parent="obstacles" unique_id=520446920]
+position = Vector2(1450, 393)
+texture = ExtResource("6_3jfpq")
+
+[node name="col" type="StaticBody2D" parent="obstacles" unique_id=169573009]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="obstacles/col" unique_id=1658800844]
+position = Vector2(306.625, 567.5)
+shape = SubResource("RectangleShape2D_lf4ol")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="obstacles/col" unique_id=641549622]
+position = Vector2(484.95313, 568.875)
+shape = SubResource("RectangleShape2D_6dtq3")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="obstacles/col" unique_id=812282338]
+position = Vector2(781, 468.5625)
+shape = SubResource("RectangleShape2D_vcs4x")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="obstacles/col" unique_id=964972111]
+position = Vector2(948.5, 456)
+shape = SubResource("RectangleShape2D_3jfpq")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="obstacles/col" unique_id=324481442]
+position = Vector2(1072, 469.5)
+shape = SubResource("RectangleShape2D_ja05p")
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="obstacles/col" unique_id=1828906591]
+position = Vector2(1457.5, 384.25)
+shape = SubResource("RectangleShape2D_u1li5")
+
+[node name="rails" type="Node2D" parent="." unique_id=1705624513]
+
+[node name="Rail" parent="rails" unique_id=2049700392 instance=ExtResource("4_ud8du")]
+position = Vector2(209, 574)
+
+[node name="Rail2" parent="rails" unique_id=699641844 instance=ExtResource("4_ud8du")]
+position = Vector2(295, 574)
+
+[node name="Rail3" parent="rails" unique_id=1410453519 instance=ExtResource("4_ud8du")]
+position = Vector2(382, 574)
+
+[node name="Rail4" parent="rails" unique_id=729194207 instance=ExtResource("4_ud8du")]
+position = Vector2(468, 574)
+
+[node name="Rail12" parent="rails" unique_id=202215453 instance=ExtResource("4_ud8du")]
+position = Vector2(554, 574)
+
+[node name="Rail5" parent="rails" unique_id=371478444 instance=ExtResource("4_ud8du")]
+position = Vector2(687, 476)
+
+[node name="Rail6" parent="rails" unique_id=1682748919 instance=ExtResource("4_ud8du")]
+position = Vector2(773, 476)
+
+[node name="Rail7" parent="rails" unique_id=1403573637 instance=ExtResource("4_ud8du")]
+position = Vector2(858, 476)
+
+[node name="Rail8" parent="rails" unique_id=2033918144 instance=ExtResource("4_ud8du")]
+position = Vector2(944, 476)
+
+[node name="Rail9" parent="rails" unique_id=810439898 instance=ExtResource("4_ud8du")]
+position = Vector2(1030, 476)
+
+[node name="Rail10" parent="rails" unique_id=339066202 instance=ExtResource("4_ud8du")]
+position = Vector2(1116, 476)
+
+[node name="Rail11" parent="rails" unique_id=1047515662 instance=ExtResource("4_ud8du")]
+position = Vector2(1202, 476)
+
+[node name="Rail15" parent="rails" unique_id=839715105 instance=ExtResource("4_ud8du")]
+position = Vector2(1338, 398)
+
+[node name="Rail16" parent="rails" unique_id=1959325649 instance=ExtResource("4_ud8du")]
+position = Vector2(1424, 398)
+
+[node name="Rail17" parent="rails" unique_id=1297500830 instance=ExtResource("4_ud8du")]
+position = Vector2(1510, 398)
+
+[node name="Rail18" parent="rails" unique_id=450357112 instance=ExtResource("4_ud8du")]
+position = Vector2(1596, 398)
+
+[node name="Rail19" parent="rails" unique_id=1181109324 instance=ExtResource("4_ud8du")]
+position = Vector2(1682, 398)
+
+[node name="Rail20" parent="rails" unique_id=1196847106 instance=ExtResource("4_ud8du")]
+position = Vector2(1768, 398)
+
+[node name="Rail21" parent="rails" unique_id=763583553 instance=ExtResource("4_ud8du")]
+position = Vector2(1919, -55)
+
+[node name="Rail22" parent="rails" unique_id=1068999320 instance=ExtResource("4_ud8du")]
+position = Vector2(2005, -55)
+
+[node name="Rail23" parent="rails" unique_id=456398581 instance=ExtResource("4_ud8du")]
+position = Vector2(2091, -55)
+
+[node name="Rail24" parent="rails" unique_id=2112966149 instance=ExtResource("4_ud8du")]
+position = Vector2(2178, 574)
+
+[node name="Rail25" parent="rails" unique_id=2024713968 instance=ExtResource("4_ud8du")]
+position = Vector2(2265, 574)
+
+[node name="Rail26" parent="rails" unique_id=1047344528 instance=ExtResource("4_ud8du")]
+position = Vector2(2352, 574)
+
+[node name="Rail27" parent="rails" unique_id=1582885217 instance=ExtResource("4_ud8du")]
+position = Vector2(2439, 574)
+
+[node name="Rail28" parent="rails" unique_id=1851329331 instance=ExtResource("4_ud8du")]
+position = Vector2(2525, 574)
+
+[node name="Rail29" parent="rails" unique_id=786017213 instance=ExtResource("4_ud8du")]
+position = Vector2(2611, 574)
+
+[node name="Rail30" parent="rails" unique_id=446076533 instance=ExtResource("4_ud8du")]
+position = Vector2(2698, 574)
+
+[node name="Rail31" parent="rails" unique_id=515576259 instance=ExtResource("4_ud8du")]
+position = Vector2(2785, 574)
+
+[node name="piston" parent="." unique_id=778211026 instance=ExtResource("5_ou2uf")]
+position = Vector2(619, 578)
+
+[node name="piston2" parent="." unique_id=1201199772 instance=ExtResource("5_ou2uf")]
+position = Vector2(1269, 476)
+
+[node name="long_platform" type="Node2D" parent="." unique_id=415246277]
+position = Vector2(1841, 402)
+
+[node name="LongPlatform" type="Sprite2D" parent="long_platform" unique_id=1072959014]
+position = Vector2(1, -4)
+scale = Vector2(1.5389962, 1.5389962)
+texture = ExtResource("8_lf4ol")
+
+[node name="platform" type="AnimatableBody2D" parent="long_platform" unique_id=637433745 groups=["rail"]]
+position = Vector2(0, -3)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="long_platform/platform" unique_id=637064610 groups=["rail"]]
+position = Vector2(1, 5)
+shape = SubResource("RectangleShape2D_pj8xv")
+
+[node name="platform_anim" type="AnimationPlayer" parent="long_platform" unique_id=2117845867]
+libraries/ = SubResource("AnimationLibrary_vcs4x")
+
+[node name="platform_interaction" type="Area2D" parent="long_platform" unique_id=1826540207]
+script = ExtResource("10_vcs4x")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="long_platform/platform_interaction" unique_id=187929525]
+position = Vector2(0, -4)
+shape = SubResource("CircleShape2D_ja05p")
+
+[node name="spike_trap" parent="." unique_id=1552088238 instance=ExtResource("10_6dtq3")]
+position = Vector2(1863, 239)
+rotation = -1.5707964
+current_level_path = "res://level/level_3/level_3.tscn"
+body_name = "platform"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="spike_trap" unique_id=203483312]
+shape = SubResource("CircleShape2D_vcs4x")
+
+[node name="spike_trap2" parent="." unique_id=744270922 instance=ExtResource("10_6dtq3")]
+position = Vector2(1863, 174)
+rotation = -1.5707964
+current_level_path = "res://level/level_3/level_3.tscn"
+body_name = "platform"
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="spike_trap2" unique_id=3009853]
+position = Vector2(-2, 2.7538174e-06)
+shape = SubResource("CircleShape2D_vcs4x")
+
+[node name="spike_trap3" parent="." unique_id=1208368154 instance=ExtResource("10_6dtq3")]
+position = Vector2(1863, 109)
+rotation = -1.5707964
+current_level_path = "res://level/level_3/level_3.tscn"
+body_name = "platform"
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="spike_trap3" unique_id=1145704803]
+position = Vector2(0, 5.6824806e-06)
+shape = SubResource("CircleShape2D_vcs4x")
+
+[node name="spike_trap4" parent="." unique_id=778873432 instance=ExtResource("10_6dtq3")]
+position = Vector2(1863, 44)
+rotation = -1.5707964
+current_level_path = "res://level/level_3/level_3.tscn"
+body_name = "platform"
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="spike_trap4" unique_id=2134304284]
+position = Vector2(0, 8.523721e-06)
+shape = SubResource("CircleShape2D_vcs4x")
+
+[connection signal="body_entered" from="long_platform/platform_interaction" to="long_platform/platform_interaction" method="_on_body_entered"]
+[connection signal="body_exited" from="long_platform/platform_interaction" to="long_platform/platform_interaction" method="_on_body_exited"]

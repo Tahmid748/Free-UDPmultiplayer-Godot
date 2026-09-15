@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://dos2lsggcjfn0"]
+
+[ext_resource type="Texture2D" uid="uid://dafk8i4xoswaw" path="res://assets/Interactive_Objects/Minecart/minecart_wheel.png" id="1_okdbg"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wyah0"]
+radius = 2.0
+
+[node name="wheel" type="RigidBody2D"]
+z_index = 13
+continuous_cd = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_wyah0")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_okdbg")
+region_enabled = true
+region_rect = Rect2(12, 29, 5, 5)

@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://baun6gqd6jjnt"]
+
+[ext_resource type="Script" uid="uid://bk165hddlsxu4" path="res://interaction_system/interactionless_area/interactionless_area.gd" id="1_gxa50"]
+
+[node name="interactionless_area" type="Area2D" unique_id=1668366122]
+script = ExtResource("1_gxa50")

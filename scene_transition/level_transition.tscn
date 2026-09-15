@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://dkj70l4mgpbyg"]
+
+[ext_resource type="Script" uid="uid://c8ftxirs0o73d" path="res://scene_transition/level_transition.gd" id="1_n5tw3"]
+
+[node name="level_transition" type="Area2D" unique_id=102971207]
+collision_layer = 7
+collision_mask = 7
+script = ExtResource("1_n5tw3")

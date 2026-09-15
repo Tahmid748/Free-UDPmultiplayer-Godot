@@ -1,0 +1,459 @@
+[gd_scene format=3 uid="uid://cx3a7dgesxem7"]
+
+[ext_resource type="Script" uid="uid://cl7g21womm55u" path="res://main/main.gd" id="1_53q0u"]
+[ext_resource type="Script" uid="uid://rtsuu2w5mv74" path="res://main/connect_to_peer.gd" id="2_xwkvk"]
+[ext_resource type="Script" uid="uid://di5ej3kj3mjhm" path="res://main/lobby_box.gd" id="3_3evlf"]
+[ext_resource type="Script" uid="uid://dfrsmgd5bp13m" path="res://main/chatbox.gd" id="4_c651c"]
+[ext_resource type="Script" uid="uid://d1wgn58njvd3t" path="res://main/character_creator.gd" id="5_4dugh"]
+[ext_resource type="Script" uid="uid://ckh46bmwhfpaj" path="res://main/level.gd" id="5_5w8p7"]
+[ext_resource type="Texture2D" uid="uid://c3notek66ywc4" path="res://player/animations/idle.png" id="5_kfbq2"]
+[ext_resource type="Shader" uid="uid://b7keemmmxp2nw" path="res://shaders/skin_color.gdshader" id="6_67ri8"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xwkvk"]
+bg_color = Color(0.157274, 0.157274, 0.157274, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_67ri8"]
+shader = ExtResource("6_67ri8")
+shader_parameter/target_color = Vector4(1, 1, 1, 1)
+shader_parameter/new_color = Vector4(1, 1, 1, 1)
+shader_parameter/tolerance = 0.1
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4dugh"]
+atlas = ExtResource("5_kfbq2")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_67ri8"]
+atlas = ExtResource("5_kfbq2")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_grrlh"]
+atlas = ExtResource("5_kfbq2")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0i4oc"]
+atlas = ExtResource("5_kfbq2")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bsumw"]
+atlas = ExtResource("5_kfbq2")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fwcvl"]
+atlas = ExtResource("5_kfbq2")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_na0o7"]
+atlas = ExtResource("5_kfbq2")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_73k8k"]
+atlas = ExtResource("5_kfbq2")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5xyti"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4dugh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_67ri8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_grrlh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0i4oc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bsumw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fwcvl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_na0o7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_73k8k")
+}],
+"loop": true,
+"name": &"d",
+"speed": 5.0
+}]
+
+[node name="main" type="Node" unique_id=490009927]
+script = ExtResource("1_53q0u")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1685142437]
+
+[node name="UI" type="Control" parent="CanvasLayer" unique_id=1148828329]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 0.0005128086
+
+[node name="address" type="MarginContainer" parent="CanvasLayer/UI" unique_id=766082978]
+layout_mode = 0
+offset_right = 89.0
+offset_bottom = 65.0
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/UI/address" unique_id=1612040475]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/UI/address/VBoxContainer" unique_id=653111463]
+layout_mode = 2
+text = "Your Key"
+
+[node name="GridContainer" type="GridContainer" parent="CanvasLayer/UI/address/VBoxContainer" unique_id=1820554172]
+layout_mode = 2
+theme_override_constants/h_separation = 20
+theme_override_constants/v_separation = 6
+columns = 2
+
+[node name="key_holder" type="LineEdit" parent="CanvasLayer/UI/address/VBoxContainer/GridContainer" unique_id=669040500]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_styles/read_only = SubResource("StyleBoxFlat_xwkvk")
+placeholder_text = "  Loding..."
+editable = false
+keep_editing_on_text_submit = true
+context_menu_enabled = false
+emoji_menu_enabled = false
+middle_mouse_paste_enabled = false
+virtual_keyboard_enabled = false
+secret = true
+secret_character = "*"
+
+[node name="copy_key" type="Button" parent="CanvasLayer/UI/address/VBoxContainer/GridContainer" unique_id=1069556002]
+layout_mode = 2
+text = "copy"
+
+[node name="connect_to_peer" type="MarginContainer" parent="CanvasLayer/UI" unique_id=460938354]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -129.0
+offset_top = -73.0
+offset_right = 129.0
+offset_bottom = 73.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_xwkvk")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/UI/connect_to_peer" unique_id=1216045116]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Label" type="Label" parent="CanvasLayer/UI/connect_to_peer/VBoxContainer" unique_id=1871033398]
+layout_mode = 2
+text = "Enter Your User Name"
+horizontal_alignment = 1
+
+[node name="name_input" type="LineEdit" parent="CanvasLayer/UI/connect_to_peer/VBoxContainer" unique_id=825099371]
+layout_mode = 2
+placeholder_text = "Enter your user name"
+
+[node name="MarginContainer2" type="MarginContainer" parent="CanvasLayer/UI/connect_to_peer/VBoxContainer" unique_id=1941068890]
+layout_mode = 2
+theme_override_constants/margin_left = 60
+theme_override_constants/margin_right = 66
+
+[node name="generate_name" type="Button" parent="CanvasLayer/UI/connect_to_peer/VBoxContainer/MarginContainer2" unique_id=2142870071]
+layout_mode = 2
+text = "Generate"
+
+[node name="enter_addr" type="Label" parent="CanvasLayer/UI/connect_to_peer/VBoxContainer" unique_id=992875180]
+layout_mode = 2
+text = "Enter Peer Key"
+horizontal_alignment = 1
+
+[node name="peer_key_input" type="LineEdit" parent="CanvasLayer/UI/connect_to_peer/VBoxContainer" unique_id=839279114]
+layout_mode = 2
+placeholder_text = "Enter Friend Key here"
+secret = true
+secret_character = "*"
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/UI/connect_to_peer/VBoxContainer" unique_id=552144791]
+layout_mode = 2
+theme_override_constants/margin_left = 60
+theme_override_constants/margin_right = 66
+
+[node name="connect" type="Button" parent="CanvasLayer/UI/connect_to_peer/VBoxContainer/MarginContainer" unique_id=1920385117]
+layout_mode = 2
+text = "connect"
+
+[node name="lobby_box" type="HBoxContainer" parent="CanvasLayer/UI" unique_id=1636569964]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -233.5
+offset_top = -167.0
+offset_right = 233.5
+offset_bottom = 167.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("3_3evlf")
+starting_level = "res://level/level_1/level_1.tscn"
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/UI/lobby_box" unique_id=1274630172]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/UI/lobby_box/PanelContainer" unique_id=840074675]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/UI/lobby_box/PanelContainer/VBoxContainer" unique_id=1831823921]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+text = "LOBBY"
+
+[node name="HSeparator" type="HSeparator" parent="CanvasLayer/UI/lobby_box/PanelContainer/VBoxContainer" unique_id=1985686619]
+layout_mode = 2
+
+[node name="MarginContainer2" type="MarginContainer" parent="CanvasLayer/UI/lobby_box/PanelContainer/VBoxContainer" unique_id=1278494301]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 12
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/UI/lobby_box/PanelContainer/VBoxContainer/MarginContainer2" unique_id=1636653910]
+layout_mode = 2
+
+[node name="player_1" type="Label" parent="CanvasLayer/UI/lobby_box/PanelContainer/VBoxContainer/MarginContainer2/VBoxContainer" unique_id=1709800930]
+layout_mode = 2
+text = "PLAYER 1:"
+
+[node name="player_2" type="Label" parent="CanvasLayer/UI/lobby_box/PanelContainer/VBoxContainer/MarginContainer2/VBoxContainer" unique_id=1196723912]
+layout_mode = 2
+text = "PLAYER 2:"
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/UI/lobby_box/PanelContainer/VBoxContainer" unique_id=643571357]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 185
+theme_override_constants/margin_right = 21
+theme_override_constants/margin_bottom = -175
+
+[node name="start_game" type="Button" parent="CanvasLayer/UI/lobby_box/PanelContainer/VBoxContainer/MarginContainer" unique_id=2119297064]
+layout_mode = 2
+size_flags_vertical = 10
+text = "START GAME"
+
+[node name="chatbox" type="PanelContainer" parent="CanvasLayer/UI/lobby_box" unique_id=900949994]
+custom_minimum_size = Vector2(185.515, 0)
+layout_mode = 2
+script = ExtResource("4_c651c")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/UI/lobby_box/chatbox" unique_id=1468801846]
+clip_contents = true
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/UI/lobby_box/chatbox/VBoxContainer" unique_id=827587824]
+layout_mode = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="CanvasLayer/UI/lobby_box/chatbox/VBoxContainer" unique_id=1502982742]
+layout_mode = 2
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+
+[node name="body_text" type="Label" parent="CanvasLayer/UI/lobby_box/chatbox/VBoxContainer/ScrollContainer" unique_id=241180477]
+custom_minimum_size = Vector2(0, 350)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 6
+autowrap_mode = 3
+
+[node name="text_box" type="LineEdit" parent="CanvasLayer/UI/lobby_box/chatbox/VBoxContainer" unique_id=1012966901]
+layout_mode = 2
+placeholder_text = "message friend"
+
+[node name="send_message" type="Button" parent="CanvasLayer/UI/lobby_box/chatbox/VBoxContainer" unique_id=911229808]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+size_flags_vertical = 8
+text = "SEND"
+
+[node name="log" type="Label" parent="CanvasLayer/UI" unique_id=1856617111]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -126.0
+offset_top = -77.0
+offset_right = 127.0
+grow_horizontal = 2
+grow_vertical = 0
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="force" type="VBoxContainer" parent="CanvasLayer/UI" unique_id=1017350592]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -130.0
+offset_top = 9.0
+offset_right = -19.0
+offset_bottom = 33.0
+grow_horizontal = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/UI/force" unique_id=876709044]
+layout_mode = 2
+
+[node name="force_host" type="CheckBox" parent="CanvasLayer/UI/force/HBoxContainer" unique_id=1269397411]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/UI/force/HBoxContainer" unique_id=1549049101]
+layout_mode = 2
+text = "Force Host"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer/UI/force" unique_id=1221278591]
+layout_mode = 2
+
+[node name="force_client" type="CheckBox" parent="CanvasLayer/UI/force/HBoxContainer2" unique_id=304350070]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/UI/force/HBoxContainer2" unique_id=1487514316]
+layout_mode = 2
+text = "Force Client"
+
+[node name="waiting" type="Label" parent="CanvasLayer/UI" unique_id=220547824]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "waiting for connection..."
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/UI" unique_id=794551530]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -20.0
+offset_right = 40.0
+offset_bottom = 20.0
+grow_vertical = 2
+
+[node name="character_creator" type="PanelContainer" parent="CanvasLayer/UI" unique_id=32559844]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 121.0
+offset_top = -120.0
+offset_right = 353.0
+offset_bottom = 155.5
+grow_vertical = 2
+script = ExtResource("5_4dugh")
+
+[node name="player_sprite" type="AnimatedSprite2D" parent="CanvasLayer/UI/character_creator" unique_id=413512762]
+material = SubResource("ShaderMaterial_67ri8")
+position = Vector2(116, 134.5)
+scale = Vector2(5.7927694, 5.7927694)
+sprite_frames = SubResource("SpriteFrames_5xyti")
+animation = &"d"
+autoplay = "d"
+frame = 1
+frame_progress = 0.08177499
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/UI/character_creator" unique_id=477245089]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+
+[node name="player_name" type="Label" parent="CanvasLayer/UI/character_creator/VBoxContainer" unique_id=45930208]
+layout_mode = 2
+text = "PlayerName"
+horizontal_alignment = 1
+clip_text = true
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/UI/character_creator/VBoxContainer" unique_id=796306524]
+layout_mode = 2
+theme_override_constants/margin_top = 201
+
+[node name="MarginContainer2" type="MarginContainer" parent="CanvasLayer/UI/character_creator/VBoxContainer" unique_id=428802078]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/margin_left = 59
+theme_override_constants/margin_right = 65
+theme_override_constants/margin_bottom = 9
+
+[node name="color_button" type="Button" parent="CanvasLayer/UI/character_creator/VBoxContainer/MarginContainer2" unique_id=1857792993]
+custom_minimum_size = Vector2(108, 28)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+toggle_mode = true
+text = "Select Color"
+
+[node name="ColorPicker" type="ColorPicker" parent="CanvasLayer/UI" unique_id=1630227341]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -273.88928
+offset_top = -108.15488
+offset_right = -9.889282
+offset_bottom = 155.84512
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 0, 1, 1)
+edit_alpha = false
+edit_intensity = false
+picker_shape = 1
+sampler_visible = false
+color_modes_visible = false
+sliders_visible = false
+hex_visible = false
+presets_visible = false
+
+[node name="level" type="Node" parent="." unique_id=579019551 groups=["level"]]
+unique_name_in_owner = true
+script = ExtResource("5_5w8p7")
+
+[node name="level_spawner" type="MultiplayerSpawner" parent="." unique_id=701100659]
+_spawnable_scenes = PackedStringArray("uid://dpyp1q4tgdcps", "uid://bfuy2453g8rk8", "uid://n8mwxn8yc328")
+spawn_path = NodePath("../level")
+spawn_limit = 1
+
+[connection signal="pressed" from="CanvasLayer/UI/address/VBoxContainer/GridContainer/copy_key" to="." method="_on_copy_key_pressed"]
+[connection signal="pressed" from="CanvasLayer/UI/connect_to_peer/VBoxContainer/MarginContainer2/generate_name" to="." method="_on_generate_name_pressed"]
+[connection signal="pressed" from="CanvasLayer/UI/connect_to_peer/VBoxContainer/MarginContainer/connect" to="CanvasLayer/UI/connect_to_peer" method="_on_connect_pressed"]
+[connection signal="pressed" from="CanvasLayer/UI/lobby_box/PanelContainer/VBoxContainer/MarginContainer/start_game" to="CanvasLayer/UI/lobby_box" method="_on_start_game_pressed"]
+[connection signal="pressed" from="CanvasLayer/UI/lobby_box/chatbox/VBoxContainer/send_message" to="CanvasLayer/UI/lobby_box/chatbox" method="_on_send_message_pressed"]
+[connection signal="toggled" from="CanvasLayer/UI/force/HBoxContainer/force_host" to="." method="_on_force_host_toggled"]
+[connection signal="toggled" from="CanvasLayer/UI/force/HBoxContainer2/force_client" to="." method="_on_force_client_toggled"]
+[connection signal="toggled" from="CanvasLayer/UI/character_creator/VBoxContainer/MarginContainer2/color_button" to="CanvasLayer/UI/character_creator" method="_on_button_toggled"]

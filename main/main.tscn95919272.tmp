@@ -1,0 +1,160 @@
+[gd_scene load_steps=5 format=3 uid="uid://cx3a7dgesxem7"]
+
+[ext_resource type="Script" uid="uid://cl7g21womm55u" path="res://main/main.gd" id="1_53q0u"]
+[ext_resource type="Script" uid="uid://rtsuu2w5mv74" path="res://main/connect_to_peer.gd" id="2_xwkvk"]
+[ext_resource type="Script" uid="uid://dfrsmgd5bp13m" path="res://main/chatbox.gd" id="4_c651c"]
+
+[sub_resource type="GDScript" id="GDScript_xwkvk"]
+
+[node name="main" type="Node2D"]
+script = ExtResource("1_53q0u")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="UI" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="address" type="MarginContainer" parent="CanvasLayer/UI"]
+layout_mode = 2
+offset_right = 89.0
+offset_bottom = 65.0
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+
+[node name="GridContainer" type="GridContainer" parent="CanvasLayer/UI/address"]
+layout_mode = 2
+theme_override_constants/h_separation = 20
+theme_override_constants/v_separation = 6
+columns = 2
+
+[node name="ip_display" type="Label" parent="CanvasLayer/UI/address/GridContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+text = "Your IP: Loading..."
+
+[node name="copy_ip" type="Button" parent="CanvasLayer/UI/address/GridContainer"]
+layout_mode = 2
+text = "copy"
+
+[node name="port_display" type="Label" parent="CanvasLayer/UI/address/GridContainer"]
+layout_mode = 2
+text = "Your Port: Loading..."
+
+[node name="copy_port" type="Button" parent="CanvasLayer/UI/address/GridContainer"]
+layout_mode = 2
+text = "copy"
+
+[node name="connect_to_peer" type="MarginContainer" parent="CanvasLayer/UI"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -129.0
+offset_top = -73.0
+offset_right = 129.0
+offset_bottom = 73.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_xwkvk")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/UI/connect_to_peer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="enter_addr" type="Label" parent="CanvasLayer/UI/connect_to_peer/VBoxContainer"]
+layout_mode = 2
+text = "Enter Friend Address"
+horizontal_alignment = 1
+
+[node name="peer_address_input" type="LineEdit" parent="CanvasLayer/UI/connect_to_peer/VBoxContainer"]
+layout_mode = 2
+placeholder_text = "enter friend IP here"
+
+[node name="peer_port_input" type="LineEdit" parent="CanvasLayer/UI/connect_to_peer/VBoxContainer"]
+layout_mode = 2
+placeholder_text = "enter friend port here"
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/UI/connect_to_peer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 60
+theme_override_constants/margin_right = 66
+
+[node name="connect" type="Button" parent="CanvasLayer/UI/connect_to_peer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+text = "connect"
+script = SubResource("GDScript_xwkvk")
+
+[node name="chatbox" type="PanelContainer" parent="CanvasLayer/UI"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -183.0
+offset_top = -223.5
+offset_right = 183.0
+offset_bottom = 223.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("4_c651c")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/UI/chatbox"]
+clip_contents = true
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/UI/chatbox/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+text = "MESSAGE TO FRIEND"
+horizontal_alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="CanvasLayer/UI/chatbox/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+
+[node name="body_text" type="Label" parent="CanvasLayer/UI/chatbox/VBoxContainer/ScrollContainer"]
+custom_minimum_size = Vector2(0, 350)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 6
+autowrap_mode = 3
+
+[node name="text_box" type="LineEdit" parent="CanvasLayer/UI/chatbox/VBoxContainer"]
+layout_mode = 2
+placeholder_text = "type your message here"
+
+[node name="send_message" type="Button" parent="CanvasLayer/UI/chatbox/VBoxContainer"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+size_flags_vertical = 8
+text = "SEND"
+
+[node name="log" type="Label" parent="CanvasLayer/UI"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -126.0
+offset_top = -77.0
+offset_right = 127.0
+grow_horizontal = 2
+grow_vertical = 0
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[connection signal="pressed" from="CanvasLayer/UI/address/GridContainer/copy_ip" to="." method="copy_address" binds= ["ip"]]
+[connection signal="pressed" from="CanvasLayer/UI/address/GridContainer/copy_port" to="." method="copy_address" binds= ["port"]]
+[connection signal="pressed" from="CanvasLayer/UI/connect_to_peer/VBoxContainer/MarginContainer/connect" to="CanvasLayer/UI/connect_to_peer" method="_on_connect_pressed"]
+[connection signal="pressed" from="CanvasLayer/UI/chatbox/VBoxContainer/send_message" to="CanvasLayer/UI/chatbox" method="send_message"]

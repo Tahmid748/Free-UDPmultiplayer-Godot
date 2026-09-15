@@ -1,0 +1,153 @@
+[gd_scene load_steps=8 format=3 uid="uid://dn0tdicvg6wrq"]
+
+[ext_resource type="PackedScene" uid="uid://blmfyx4ygwjv6" path="res://assets/Interactive_Objects/Minecart/minecart.tscn" id="1_syuel"]
+[ext_resource type="PackedScene" uid="uid://bcycpqjc8xtfj" path="res://player/player.tscn" id="2_8a8pi"]
+[ext_resource type="Script" uid="uid://h8rih6mpwx0q" path="res://test/test_area.gd" id="3_65205"]
+[ext_resource type="PackedScene" uid="uid://cj586ffqgh7g5" path="res://assets/Interactive_Objects/Minecart/rail/rail.tscn" id="4_hrq6i"]
+[ext_resource type="PackedScene" uid="uid://chbtcmlp3wplk" path="res://assets/Interactive_Objects/piston/piston.tscn" id="5_tbfq4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yr2l0"]
+size = Vector2(1160, 104)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hrq6i"]
+radius = 32.06244
+
+[node name="Test" type="Node2D"]
+
+[node name="BG" type="Node2D" parent="."]
+
+[node name="Panel" type="Panel" parent="BG"]
+offset_top = 563.0
+offset_right = 1156.0
+offset_bottom = 666.0
+
+[node name="Panel2" type="Panel" parent="BG"]
+offset_left = 97.0
+offset_top = 450.0
+offset_right = 166.0
+offset_bottom = 542.0
+
+[node name="Panel3" type="Panel" parent="BG"]
+offset_left = 228.0
+offset_top = 502.0
+offset_right = 297.0
+offset_bottom = 594.0
+
+[node name="Panel4" type="Panel" parent="BG"]
+offset_left = 327.0
+offset_top = 484.0
+offset_right = 396.0
+offset_bottom = 576.0
+
+[node name="Panel5" type="Panel" parent="BG"]
+offset_left = 669.0
+offset_top = 507.0
+offset_right = 738.0
+offset_bottom = 599.0
+
+[node name="Panel6" type="Panel" parent="BG"]
+offset_left = 452.0
+offset_top = 496.0
+offset_right = 521.0
+offset_bottom = 588.0
+
+[node name="Panel7" type="Panel" parent="BG"]
+offset_left = 594.0
+offset_top = 483.0
+offset_right = 663.0
+offset_bottom = 575.0
+
+[node name="Panel8" type="Panel" parent="BG"]
+offset_left = 622.0
+offset_top = 305.0
+offset_right = 691.0
+offset_bottom = 397.0
+
+[node name="Panel9" type="Panel" parent="BG"]
+offset_left = 524.0
+offset_top = 436.0
+offset_right = 593.0
+offset_bottom = 528.0
+
+[node name="Panel10" type="Panel" parent="BG"]
+offset_left = 752.0
+offset_top = 531.0
+offset_right = 821.0
+offset_bottom = 623.0
+
+[node name="Panel11" type="Panel" parent="BG"]
+offset_left = 836.0
+offset_top = 435.0
+offset_right = 905.0
+offset_bottom = 527.0
+
+[node name="Panel12" type="Panel" parent="BG"]
+offset_left = 970.0
+offset_top = 502.0
+offset_right = 1039.0
+offset_bottom = 594.0
+
+[node name="Panel13" type="Panel" parent="BG"]
+offset_left = 1066.0
+offset_top = 414.0
+offset_right = 1135.0
+offset_bottom = 506.0
+
+[node name="Panel14" type="Panel" parent="BG"]
+offset_left = 697.0
+offset_top = 379.0
+offset_right = 766.0
+offset_bottom = 471.0
+
+[node name="Panel15" type="Panel" parent="BG"]
+offset_left = 861.0
+offset_top = 531.0
+offset_right = 930.0
+offset_bottom = 623.0
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(580, 615)
+shape = SubResource("RectangleShape2D_yr2l0")
+
+[node name="player" parent="." instance=ExtResource("2_8a8pi")]
+position = Vector2(403, 510)
+testing_mode = true
+
+[node name="Minecart" parent="." instance=ExtResource("1_syuel")]
+position = Vector2(401, 528)
+
+[node name="test_area" type="Area2D" parent="."]
+position = Vector2(538, 547)
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("3_65205")
+metadata/_custom_type_script = "uid://bk165hddlsxu4"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="test_area"]
+position = Vector2(-26, -5)
+shape = SubResource("CircleShape2D_hrq6i")
+
+[node name="Label" type="Label" parent="test_area"]
+visible = false
+offset_left = -24.0
+offset_top = -22.0
+offset_right = 16.0
+offset_bottom = -2.0
+text = "hi!"
+
+[node name="Rail" parent="." instance=ExtResource("4_hrq6i")]
+position = Vector2(406, 559)
+
+[node name="Rail3" parent="." instance=ExtResource("4_hrq6i")]
+position = Vector2(319, 559)
+
+[node name="Rail2" parent="." instance=ExtResource("4_hrq6i")]
+position = Vector2(492, 559)
+
+[node name="Rail4" parent="." instance=ExtResource("4_hrq6i")]
+position = Vector2(578, 559)
+
+[node name="piston" parent="." instance=ExtResource("5_tbfq4")]
+position = Vector2(459, 561)

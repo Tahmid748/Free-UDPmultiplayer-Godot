@@ -1,0 +1,21 @@
+# Godot 4+ specific ignores
+.godot/
+/android/
+
+
+# --- Ignore asset payloads ---
+# Folder structure and expected filenames are documented in
+# assets/ASSET_MANIFEST.md; .gitkeep files preserve otherwise empty folders.
+*.png
+*.jpg
+*.jpeg
+*.webp
+*.svg
+*.wav
+*.mp3
+*.ogg
+*.glb
+*.gltf
+*.obj
+*.fbx
+*.blend
